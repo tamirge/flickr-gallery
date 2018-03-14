@@ -34,20 +34,23 @@ class Image extends React.Component {
   urlFromDto(dto) {
     return `https://farm${dto.farm}.staticflickr.com/${dto.server}/${dto.id}_${dto.secret}.jpg`;
   }
-
+	
+		
   render() {
     return (
       <div
-        className="image-root"
+        className="image-root" 
         style={{
           backgroundImage: `url(${this.urlFromDto(this.props.dto)})`,
           width: this.state.size + 'px',
-          height: this.state.size + 'px'
+          height: this.state.size + 'px',
+	
+		  
         }}
         >
         <div>
-          <FontAwesome className="image-icon" name="sync-alt" title="rotate"/>
-          <FontAwesome className="image-icon" name="trash-alt" title="delete"/>
+          <FontAwesome className="image-icon" name="sync-alt" title="rotate" />
+          <FontAwesome className="image-icon" name="trash-alt" title="delete" onClick={() => { this.props.remove(this.props.dto.id) }}/>
           <FontAwesome className="image-icon" name="expand" title="expand"/>
         </div>
       </div>
