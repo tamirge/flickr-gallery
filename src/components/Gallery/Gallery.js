@@ -18,9 +18,9 @@ class Gallery extends React.Component {
   }
   
 	 
-remove(id){
+removeImage(imgId){
 	this.setState({
-  	images: this.state.images.filter((img) => id !== img.id)
+  	images: this.state.images.filter((img) => imgId !== img.id)
   })
 }
 
@@ -67,7 +67,7 @@ remove(id){
     return (
       <div className="gallery-root" >
         {this.state.images.map(dto => {
-          return <Image remove ={this.remove.bind(this)} key={'image-' + dto.id} dto={dto} galleryWidth={this.state.galleryWidth}/>;
+          return <Image remove ={this.removeImage.bind(this)} key={'image-' + dto.id} dto={dto} galleryWidth={this.state.galleryWidth}/>;
         })}
       </div>
     );
